@@ -1,10 +1,10 @@
-# Test
+# KIRATEC-ASSESMENT
 
 ##### Author:
     Theekshana Sandaru Thilakarathne
 
 ## Step 0
-Follow these only if you don't have python 3x, pip, virtualenv and virtualenvwrapper installed in your machine.
+Follow these only if you don't have python 3x, pipenv, virtualenv and virtualenvwrapper installed in your machine.
 If you do, then skip to step 1
 #### a) Install python 3x
     
@@ -21,14 +21,14 @@ If you do, then skip to step 1
         
         5. sudo apt update
         
-        6. sudo apt install python3.7
+        6. sudo apt install python3.10
         
         7. check python version to verify the installation using 'python ––version'
     
     2) For Windows
         1. verify using 'python --version'
         
-        2. downlaod the python 3.8 using below link and install: -
+        2. downlaod the python 3.10 using below link and install: -
            https://www.python.org/downloads/
            
         3. check python version to verify the installation using 'python ––version'
@@ -50,7 +50,7 @@ If you do, then skip to step 1
         
         if not available follow the steps
         
-        2. python3 get-pip.py
+        2. python get-pip.py
 
 
 ## Step 1
@@ -59,7 +59,7 @@ If you do, then skip to step 1
             sudo pip3 install pipenv
       
       2. For Windows OS
-            pip3 install pipenv
+            pip install pipenv
             
 ## Step 2
 #### 1) Create a virtual environment
@@ -71,6 +71,15 @@ If you do, then skip to step 1
 
     then run
 
-    - pipenv sync
+    - pipenv sync --dev
 
     to install the dependacies
+
+
+## Step 3
+#### 1) run project
+    python manage.py runserver
+
+    credentials for superuser:
+        username: admininvent
+        password: admin
