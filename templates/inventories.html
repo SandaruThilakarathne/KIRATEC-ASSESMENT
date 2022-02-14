@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="header">
+            <ul>
+
+            </ul>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                // debugger;
+                $.ajax({
+                    type: 'GET',
+                    url: "http://127.0.0.1:8000/api/inventory",
+                    success: function(data) {
+                        data.map((element) => {
+                            // su
+                            suplier_names = []
+                            element.supplier.forEach(item => {
+                                suplier_names.push(item.name)
+                                // debugger
+                            });
+                            console.log(suplier_names)
+                            element.suppier_names = suplier_names.join()
+                            delete element.supplier
+                        })
+                        data.forEach((row) => {
+                            $('#header ul').append(`<li>Name: <a href='http://127.0.0.1:8000/inventory/${row.id}', target="_blank">${row.name}</a>, Availability: ${row.availability ? 'available' : 'not available'},Suplier Names: ${row.suppier_names}</li>`);
+                        })
+                    },
+                    error: function(e) {
+                        alert("Error occured")
+                    }
+                })
+            } );
+        </script>
+
+    </body>
+</html>
